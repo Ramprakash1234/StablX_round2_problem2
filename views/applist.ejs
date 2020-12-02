@@ -1,0 +1,36 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+<style>
+	.jumbotron{
+		margin-top:40px;
+		text-align:center;
+	}
+	.center{
+		width:75%;
+		margin:0 auto;
+	}
+	.items{
+		border:1px solid black;
+		border-radius:10px;
+		margin:10px 0;
+		padding:10px;
+	}
+</style>
+<body>
+<% let applist=JSON.parse(allapp) %>
+<div class="center">
+	<div class="jumbotron"><h1>
+		Web scraper of Alternativeto.net
+		</h1><h5 style="margin-top:10px;">
+		<a style="color:green;text-decoration:underline;" href="/csvdownload">Click to download the data in csv format</a>
+		</h5></div>
+<%for (let i=0;i<applist.length;i++){%>
+	<div class="items">
+		<h4><span style="color:Blue;margin-bottom:10px;">App Name:</span> <%=applist[i].appname%></h4>
+	<p><span style="color:tomato;">Description:</span> <%=applist[i].appdescription%></p>
+		<p><span style="color:tomato;">Landing page URL:</span> https://alternativeto.net/<%=applist[i].applink%></p>
+	<p><span style="color:tomato;">Rank: </span><%=applist[i].apprank%></p>
+	</div>
+<%}%>
+</div>
+</body>
+
